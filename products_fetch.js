@@ -1,4 +1,4 @@
-!async function(){
+export default !async function () {
     let data = await fetch("https://my.api.mockaroo.com/products.json?key=ffb713b0")
         .then((response) => response.json())
         .then(data => {
@@ -7,7 +7,7 @@
         .catch(error => {
             console.error(error);
         });
-    
+
     for (let i in data) {
         const product_id = data[i]['id']
         const product_name = data[i]['product_name']
@@ -16,4 +16,4 @@
         const product_price = data[i]['product_price']
         const date_of_arrival = data[i]['date_of_arrival']
     }
-    }();
+}();
