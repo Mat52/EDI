@@ -1,7 +1,13 @@
-h1 {
-    color: dark;
+*{
+    box-sizing: border-box;
+    color: white;
 }
-
-h3 {
-    color: dark;
+body{
+    background: rgb(25, 25, 25);
+}
+.card-body{
+    font-size: 1.05em;
+}
+span{
+    font-size: 1.5em;
 }
