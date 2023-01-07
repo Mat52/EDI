@@ -14,7 +14,9 @@
 
 <body>
     <nav class="navbar sticky-top navbar-light bg-dark">
+        <button class="btn btn-secondary" onclick="goToTop()" id="topBtn" title="Top">Top</button>
         <h1 class="mx-auto">Product sales statistics - GROUP PROJECT EDI</h1>
+        <button class="btn btn-secondary" onclick="goToChart()" id="chartBtn" title="Charts">Charts</button>
     </nav>
     <div class="container">
         <div class="row">
@@ -59,7 +61,7 @@
     <div class="container mx-auto">
         <div class="row">
             <div class="col">
-                <div class="collapse multi-collapse m-2 mb-5 p-3" id="displayAuthors">
+                <div class="collapse m-2 mb-5 p-3" id="displayAuthors">
                     <div class="card card-body bg-dark p-3 text-center">
                         <h3>Mateusz Łopatkiewicz</h3>
                         <h3>Jakub Guzik</h3>
@@ -68,7 +70,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="collapse multi-collapse m-2 mb-5 p-3" id="displayOverview">
+                <div class="collapse m-2 mb-5 p-3" id="displayOverview">
                     <div class="card card-body bg-dark p-3 text-center">
                         Our project is focused on statistics of selected shopping products, the neccesary data is
                         displayed from Mockaroo api using fetch
@@ -95,23 +97,19 @@
 
             </tbody>
         </table>
-        <div class="container">
-            <canvas id="myChart1"></canvas>
-        </div>
-        <div>
-            <canvas id="myChart2"></canvas>
+        <div class="container" id="charts">
+            <div class="row">
+                <h2 class="bg-secondary p-3 my-4 mx-auto rounded">JavaScript Data Charts</h2>
+            </div>
+            <div class="row m-3 p-2">
+                <canvas id="myChart1"></canvas>
+            </div>
+            <div class="row m-3 p-2">
+                <canvas id="myChart2"></canvas>
+            </div>
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

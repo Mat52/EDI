@@ -53,9 +53,13 @@ function CreateChart1(data) {
             }]
         },
         options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Top 10 Biggest Exporters'
                 }
             }
         }
@@ -101,3 +105,15 @@ function CreateChart2(data) {
         },
     });
 };
+
+function goToTop() {
+    window.scroll(0, 0) //Scrolluj to pozycji (0,0)
+}
+
+function goToChart() {
+    let chartRect = document.getElementById("charts").getBoundingClientRect() //Pobierz informacje o pozycji elementu w viewportcie
+    let bodyRect = document.body.getBoundingClientRect() //Pobierz informacje o pozycji elementu body
+    yOffset = chartRect.y - bodyRect.y //Oblicz offset do przesunięcia okna (niezależny od viewportu)
+    window.scroll(0, yOffset - 75)
+
+}
