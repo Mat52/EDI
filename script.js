@@ -3,11 +3,12 @@ let data = fetch("https://my.api.mockaroo.com/products.json?key=ffb713b0")
     .then((response) => response.json())
     .then(data => {
         createTable(data)
-        CreateChart(data)
+        CreateChart1(data)
+        CreateChart2(data)
     })
     .catch(error => {
         console.error(error);
-    });
+    }); 
 
 function createTable(data) {
     let tbody = document.getElementById("tbody")
@@ -17,7 +18,7 @@ function createTable(data) {
     });
 }
 
-function CreateChart(data) {
+function CreateChart1(data) {
 
     let country = []
     data.forEach(element =>
@@ -44,13 +45,13 @@ function CreateChart(data) {
 
 
 
-    const ctx = document.getElementById('myChart')
+    const ctx = document.getElementById('myChart1')
     new Chart(ctx, {
         type: 'bar',
         data: {
             labels: countries10List,
             datasets: [{
-                label: 'Top 10 countries with the most deliveries',
+                label: 'Top 10 countries with the most deliveries', 
                 data: NumbersFirst10Countries,
                 borderWidth: 5
             }]
@@ -64,3 +65,45 @@ function CreateChart(data) {
         }
     });
 }
+
+function CreateChart2(data) {
+    data.sort((a, b) => b.product_quantity- a.product_quantity); //Pobrane dane sortujemy od nawiększej ilości do najmniejszej
+
+    const labels = data.map(product => product.product_name); // rozdzielamy dane potrzebne od zbędnych na osobno nazwy
+    const quantities = data.map(product => product.product_quantity); // i ilości
+
+    console.log(labels);
+    console.log(quantities);
+
+    const ctx = document.getElementById('myChart2');  //pobieramy element myChart2 do którego będziemy zwracać wykres
+    const chart = new Chart(ctx, {   
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Quantity',
+                data: quantities,
+                borderWidth: 1,
+                BarThickness: 10
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            elements: {
+              bar: {
+                borderWidth: 1,
+              }
+            },
+            responsive: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+              },
+              title: {
+                display: true,
+                text: 'Products Bought (Most to least)'
+              }
+            }
+          },
+        });
+};
