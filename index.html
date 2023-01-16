@@ -56,6 +56,24 @@
                     </svg>
                 </button>
             </div>
+            <div class="col-md m-3 d-flex justify-content-center">
+                <button class="btn btn-secondary p-4 my-3" type="button" data-toggle="collapse"
+                    data-target="#displayDatasets" aria-expanded="false" aria-controls="displayDatasets">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-caret-down" viewBox="0 0 16 16">
+                        <path
+                            d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                    </svg>
+                    <span class="button-text">
+                        Datasets
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-caret-down" viewBox="0 0 16 16">
+                        <path
+                            d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
     <div class="container mx-auto">
@@ -76,6 +94,21 @@
                         displayed from Mockaroo api using fetch
                         and consists of parameters such as: id, product name, product quantity, country of origin, price
                         of a product and date of arrival.
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="collapse m-2 mb-5 p-3" id="displayDatasets">
+                    <div class="card card-body bg-dark p-3 text-center">
+                        <button class="btn btn-secondary" onclick="changeDataset(1)" id="dataset"
+                            title="Dataset 1">Dataset
+                            1</button>
+                        <button class="btn btn-secondary" onclick="changeDataset(2)" id="dataset"
+                            title="Dataset 2">Dataset
+                            2</button>
+                        <button class="btn btn-secondary" onclick="changeDataset(3)" id="dataset"
+                            title="Dataset 3">Dataset
+                            3</button>
                     </div>
                 </div>
             </div>
@@ -100,6 +133,7 @@
         <div class="container" id="charts">
             <div class="row">
                 <h2 class="bg-secondary p-3 my-4 mx-auto rounded">JavaScript Data Charts</h2>
+
             </div>
             <div class="row m-3 p-2">
                 <canvas id="myChart1"></canvas>

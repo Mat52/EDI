@@ -1,5 +1,5 @@
 
-let data = fetch("https://my.api.mockaroo.com/products.json?key=ffb713b0")
+let data = fetch("DataSet1.json")
     .then((response) => response.json())
     .then(data => {
         createTable(data)
@@ -42,7 +42,7 @@ function CreateChart1(data) {
 
 
     const ctx = document.getElementById('myChart1')
-    new Chart(ctx, {
+    chart1 = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: countries10List,
@@ -74,7 +74,7 @@ function CreateChart2(data) {
 
 
     const ctx = document.getElementById('myChart2');  //pobieramy element myChart2 do którego będziemy zwracać wykres
-    const chart = new Chart(ctx, {
+    chart2 = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labels,
@@ -115,5 +115,23 @@ function goToChart() {
     let bodyRect = document.body.getBoundingClientRect() //Pobierz informacje o pozycji elementu body
     yOffset = chartRect.y - bodyRect.y //Oblicz offset do przesunięcia okna (niezależny od viewportu)
     window.scroll(0, yOffset - 75)
+
+}
+
+function changeDataset(dataset) {
+    let tbody = document.getElementById("tbody")
+    tbody.innerHTML = ""
+    chart1.destroy()
+    chart2.destroy()
+    let data = fetch("DataSet" + dataset + ".json")
+        .then((response) => response.json())
+        .then(data => {
+            createTable(data)
+            CreateChart1(data)
+            CreateChart2(data)
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
 }

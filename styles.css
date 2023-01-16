@@ -1,14 +1,21 @@
-*{
+* {
     box-sizing: border-box;
     scroll-behavior: smooth;
     color: white;
 }
-body{
+
+body {
     background: rgb(25, 25, 25);
 }
-.card-body{
+
+.card-body {
     font-size: 1.05em;
 }
-span{
+
+span {
     font-size: 1.5em;
+}
+
+.btn {
+    margin: 10px;
 }
