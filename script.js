@@ -104,7 +104,7 @@ function CreateChart2(data) {
             }
         },
     });
-};
+}; //
 
 function goToTop() {
     window.scroll(0, 0) //Scrolluj to pozycji (0,0)
